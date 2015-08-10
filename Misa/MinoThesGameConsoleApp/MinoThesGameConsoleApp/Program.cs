@@ -13,11 +13,10 @@ namespace MinoThesGameConsoleApp
             game.CreateMap();
             // game.PrintGridCoordination();
 
-            Console.WriteLine(game.minotaur.Position);
             game.MoveMinotaur(theseusPosition.Position);
             Console.WriteLine("Minotaur move 1 {0}", game.minotaur.Position);
-            game.MoveMinotaur(theseusPosition.Position);
 
+            game.MoveMinotaur(theseusPosition.Position);
             Console.WriteLine("Minotaur move 2 {0}", game.minotaur.Position);
 
             Console.ReadLine();
