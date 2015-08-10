@@ -50,11 +50,10 @@ namespace MinoThesGameConsoleApp
             }
             Console.ReadLine();
         }
-
-
+        
         public void MoveMinotaur(Point theseusPos)
         {
-            var hasMovedX = MoveInDirection(true, theseusPos.X, minotaur.Position.X); // use x coords
+            bool hasMovedX = MoveInDirection(true, theseusPos.X, minotaur.Position.X); // use x coords
            
             if (!hasMovedX)
             {
@@ -100,10 +99,12 @@ namespace MinoThesGameConsoleApp
             Point nextTile = new Point(minotaur.Position.X + direction.X, 
             minotaur.Position.Y + direction.Y);
 
+            // Validate if the target Tile actually exists. (Not outside the map)
             if (nextTile.X >= Map.GetLength(0) || nextTile.Y >= Map.GetLength(1))
             {
                 return true;
             }
+
             Tile targetTile = Map[nextTile.X, nextTile.Y];
 
             if (direction.X < 0) // left
