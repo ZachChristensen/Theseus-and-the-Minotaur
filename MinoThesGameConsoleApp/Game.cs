@@ -7,6 +7,7 @@ namespace MinoThesGameConsoleApp
     {
         public Tile[,] Map;
         public Minotaur minotaur;
+        public Theseus theseus;
 
         public void CreateMap()
         {
@@ -43,16 +44,18 @@ namespace MinoThesGameConsoleApp
             {
                 for (int column = 0; column < mapHeight; column++)
                 {
-                    Console.Write("(" + row);
-                    Console.Write("," + column + ") ");
+                    Console.Write("(" + column);
+                    Console.Write("," + row + ") ");
                 }
                 Console.WriteLine();
             }
-            Console.ReadLine();
+            Console.WriteLine("Minotaur at {0} Theseus at {1}", minotaur.Position, theseus.Position);
         }
         
-        public void MoveMinotaur(Point theseusPos)
+        public void MoveMinotaur()
         {
+            Point theseusPos = theseus.Position;
+
             bool hasMovedX = MoveInDirection(true, theseusPos.X, minotaur.Position.X); // use x coords
            
             if (!hasMovedX)

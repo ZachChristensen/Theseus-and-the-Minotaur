@@ -7,16 +7,16 @@ namespace MinoThesGameConsoleApp
         static void Main(string[] args)
         {
             Game game = new Game();
-            Thing theseusPosition = new Thing(0, 2);
+            game.theseus = new Theseus(2, 2);
             game.minotaur = new Minotaur(1, 0);
 
             game.CreateMap();
-            // game.PrintGridCoordination();
+            game.PrintGridCoordination();
 
-            game.MoveMinotaur(theseusPosition.Position);
+            game.MoveMinotaur();
             Console.WriteLine("Minotaur move 1 {0}", game.minotaur.Position);
 
-            game.MoveMinotaur(theseusPosition.Position);
+            game.MoveMinotaur();
             Console.WriteLine("Minotaur move 2 {0}", game.minotaur.Position);
 
             Console.ReadLine();

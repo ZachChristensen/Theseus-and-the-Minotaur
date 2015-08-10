@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Direction.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Theseus.cs" />
     <Compile Include="Minotaur.cs" />
     <Compile Include="Thing.cs" />
     <Compile Include="Program.cs" />
