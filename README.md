@@ -5,10 +5,8 @@ Reminder that documentation goes in the OneDrive.
 
 Todo:
 
--Building Map 1
+-Building Map 1 (only the exit/goal needs to be added)
 
 -Character movement (Theseus)
-
--Wall interaction
 
 -Test Cases
