@@ -7,7 +7,6 @@ namespace MinoThesGameConsoleApp
     {
         public Tile[,] Map;
         public Minotaur minotaur;
-        public Theseus theseus;
 
         public void CreateMap()
         {
@@ -44,18 +43,16 @@ namespace MinoThesGameConsoleApp
             {
                 for (int column = 0; column < mapHeight; column++)
                 {
-                    Console.Write("(" + column);
-                    Console.Write("," + row + ") ");
+                    Console.Write("(" + row);
+                    Console.Write("," + column + ") ");
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("Minotaur at {0} Theseus at {1}", minotaur.Position, theseus.Position);
+            Console.ReadLine();
         }
         
-        public void MoveMinotaur()
+        public void MoveMinotaur(Point theseusPos)
         {
-            Point theseusPos = theseus.Position;
-
             bool hasMovedX = MoveInDirection(true, theseusPos.X, minotaur.Position.X); // use x coords
            
             if (!hasMovedX)
@@ -143,32 +140,5 @@ namespace MinoThesGameConsoleApp
             return false;
         }
 
-        public void Play()
-        {
-            //forever loop with a goto to exit on death or win
-            
-            //loop until valid input
-                //readkey for input
-            //do action(move,reset,delay)
-            MoveMinotaur();
-            Console.WriteLine("Minotaur move 1 {0}", minotaur.Position);
-            if (theseus.Position == minotaur.Position){
-                TheseusDeath();
-                return;
-            }
-            this.MoveMinotaur();
-            Console.WriteLine("Minotaur move 2 {0}", minotaur.Position);
-            if (theseus.Position == minotaur.Position)
-            {
-                TheseusDeath();
-                return;
-            }
-            
-        }
-
-        public void TheseusDeath()
-        {
-            Console.WriteLine("Theseus is dead");
-        }
     }
 }
