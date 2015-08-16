@@ -1,35 +1,78 @@
 ﻿using System;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MinoThesGameConsoleApp
 {
     class Game
     {
-        public Tile[,] Map;
-        public Minotaur minotaur;
+        protected Tile[,] Map;
+        public Minotaur Minotaur;
+        public Theseus Theseus;
+        public ConsoleKeyInfo KeyInfo;
+        public bool TheseusAlive = true;
+
+        public void Initialise()
+        {
+            CreateMap(); 
+            Theseus = new Theseus(1, 2);
+            Minotaur = new Minotaur(1, 0);
+        }
 
         public void CreateMap()
         {
-            Map = new Tile[3, 3];
-            for (int i = 0; i < 3; i++)
+            int width = 3;
+            int height = 3;
+            Map = new Tile[width, height];
+
+            for (int x = 0; x < width; x++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int y = 0; y < height; y++)
                 {
-                    Map[i, j] = new Tile();
+                    Map[x, y] = new Tile(x, y);
                 }
             }
 
+//            Map[1, 1].FourWalls = Walls.Up | Walls.Right | Walls.Down;
+//
+//            // create outside boundry walls
+//            Map[0, 0].FourWalls = Walls.Up | Walls.Left;    // upper left corner
+//            Map[0, height - 1].FourWalls = Walls.Up | Walls.Right;    // upper right corner
+//            Map[width - 1, 0].FourWalls = Walls.Down | Walls.Left;  // bottom left corner
+//            Map[width - 1, height - 1].FourWalls = Walls.Down | Walls.Right;    // bottom right corner
+//            
+//
+//            for (int up = 1; up < width - 1; up++)  // up side walls
+//            {
+//                Map[up, 0].FourWalls = Walls.Up;
+//            }
+//
+//            for (int down = 1; down < width - 1; down++)    // down side walls
+//            {
+//                Map[down, width - 1].FourWalls = Walls.Down;
+//            }
+//
+//            for (int left = 1; left < height - 1; left++)   // left side walls
+//            {
+//                Map[0, left].FourWalls = Walls.Left;
+//            }
+//
+//            for (int right = 1; right < height - 1; right++)    // right side walls
+//            {
+//                Map[height - 1, right].FourWalls = Walls.Right;
+//            }
+
             Map[0, 0].FourWalls = Walls.Up | Walls.Left;
             Map[0, 1].FourWalls = Walls.Left;
-            Map[0, 2].FourWalls = Walls.Left | Walls.Down;
+            Map[0, 2].FourWalls = Walls.Down | Walls.Left;
 
             Map[1, 0].FourWalls = Walls.Up;
             Map[1, 1].FourWalls = Walls.Up | Walls.Right | Walls.Down;
             Map[1, 2].FourWalls = Walls.Down;
 
             Map[2, 0].FourWalls = Walls.Up | Walls.Right;
-            Map[2, 1].FourWalls = Walls.None;
-            Map[2, 2].FourWalls = Walls.Right | Walls.Down;
+            Map[2, 1].FourWalls = Walls.Right;
+            Map[2, 2].FourWalls = Walls.Down | Walls.Right;
         }
 
         public void PrintGridCoordination()
@@ -43,28 +86,95 @@ namespace MinoThesGameConsoleApp
             {
                 for (int column = 0; column < mapHeight; column++)
                 {
-                    Console.Write("(" + row);
-                    Console.Write("," + column + ") ");
+                    Console.Write("(" + column);
+                    Console.Write("," + row + ") ");
                 }
                 Console.WriteLine();
             }
-            Console.ReadLine();
         }
-        
-        public void MoveMinotaur(Point theseusPos)
+
+        public void Play()
         {
-            bool hasMovedX = MoveInDirection(true, theseusPos.X, minotaur.Position.X); // use x coords
-           
-            if (!hasMovedX)
+            while (TheseusAlive)
             {
-                MoveInDirection(false, theseusPos.Y, minotaur.Position.Y); // use y coords
+                while (!MoveTheseus())
+                {
+                    Console.WriteLine("Theseus can't move that way");
+                }
+
+                Console.WriteLine("Theseus has moved to {0}", Theseus.Position);
+                MoveMinotaur(Theseus.Position); // 1st move
+                Console.WriteLine("Minotaur has moved to {0}", Minotaur.Position);
+
+                MoveMinotaur(Theseus.Position); // 2nd move
+                Console.WriteLine("Minotaur has moved to {0}\n", Minotaur.Position);
+
+                if (IsMinotaurNextToTheseus())
+                {
+                    Console.WriteLine("Minotaur killed Theseus...");
+                    TheseusAlive = false;
+                }
             }
         }
 
-        public bool MoveInDirection(bool isX, int theseusPos, int minotaurPos)
+        public bool IsMinotaurNextToTheseus()
         {
-            Point lessThanDirection = isX ? Direction.Left : Direction.Up;  // +
-            Point greaterThanDirection = isX ? Direction.Right : Direction.Down;  // -
+            if (Minotaur.Position == Theseus.Position)
+            {
+                Console.WriteLine("Minotaur wound up his arm!");
+                return true;
+            }
+            return false;
+        }
+
+        public bool MoveTheseus()
+        {
+            Point direction = ReadKeyboardControll();
+            if (!direction.IsEmpty)
+            {
+                return TryToMoveTheCharacter(Theseus, direction);
+            }
+            return false;
+        }
+
+        public Point ReadKeyboardControll()
+        {
+            KeyInfo = Console.ReadKey();
+
+            if (KeyInfo.Key == ConsoleKey.UpArrow || KeyInfo.Key == ConsoleKey.W)
+            {
+                return Direction.Up;
+            }
+            if (KeyInfo.Key == ConsoleKey.DownArrow || KeyInfo.Key == ConsoleKey.S)
+            {
+                return Direction.Down;
+            }
+            if (KeyInfo.Key == ConsoleKey.LeftArrow || KeyInfo.Key == ConsoleKey.A)
+            {
+                return Direction.Left;
+            }
+            if (KeyInfo.Key == ConsoleKey.RightArrow || KeyInfo.Key == ConsoleKey.D)
+            {
+                return Direction.Right;
+            }
+            return new Point(); // return nothing
+        }
+
+        public void MoveMinotaur(Point theseusPos)
+        {
+            bool hasMovedX = MoveMinotaurInDirection(true, theseusPos.X, Minotaur.Position.X); // X coords
+           
+            if (!hasMovedX)
+            {
+                MoveMinotaurInDirection(false, theseusPos.Y, Minotaur.Position.Y); // Y coords
+            }
+        }
+
+        // Move Minotaur by referencing Theseus's position
+        public bool MoveMinotaurInDirection(bool isX, int theseusPos, int minotaurPos)
+        {
+            Point lessThanDirection = isX ? Direction.Left : Direction.Up;  // +1 coords
+            Point greaterThanDirection = isX ? Direction.Right : Direction.Down;  // -1 coords
 
             if (theseusPos == minotaurPos)
             {
@@ -73,70 +183,69 @@ namespace MinoThesGameConsoleApp
 
             if (theseusPos < minotaurPos)
             {
-                return TryToMoveMinotaur(lessThanDirection);
+                return TryToMoveTheCharacter(Minotaur, lessThanDirection);
             }
-
-            return TryToMoveMinotaur(greaterThanDirection);
+            return TryToMoveTheCharacter(Minotaur, greaterThanDirection);
         }
 
-        public bool TryToMoveMinotaur(Point direction)
+        // Checks if the character can move. If it can, set the new position to the character.
+        public bool TryToMoveTheCharacter(Character character, Point direction)
         {
-            if (IsDirectionWall(direction))
+            if (IsDirectionWall(character, direction))
             {
-                // increment turn
                 return false;
             }
-            
-            // actually move
-            minotaur.Position.X += direction.X;
-            minotaur.Position.Y += direction.Y;
+
+            // New new position(moves)
+            character.Position.X += direction.X;
+            character.Position.Y += direction.Y;
 
             return true;
         }
 
-        public bool IsDirectionWall(Point direction)
+        // Checks if the given character's moving direction is wall or not
+        public bool IsDirectionWall(Character character, Point direction)
         {
-            Point nextTile = new Point(minotaur.Position.X + direction.X, 
-            minotaur.Position.Y + direction.Y);
+            Point targetPoint = new Point(character.Position.X + direction.X, character.Position.Y + direction.Y);
+            Point currentPoint = new Point(character.Position.X, character.Position.Y);
 
             // Validate if the target Tile actually exists. (Not outside the map)
-            if (nextTile.X >= Map.GetLength(0) || nextTile.Y >= Map.GetLength(1))
+            if (targetPoint.X >= Map.GetLength(0) || targetPoint.Y >= Map.GetLength(1))
             {
                 return true;
             }
 
-            Tile targetTile = Map[nextTile.X, nextTile.Y];
+            Tile targetTile = Map[targetPoint.X, targetPoint.Y];
+            Tile currentTile = Map[currentPoint.X, currentPoint.Y];
 
-            if (direction.X < 0) // left
+            if (direction.Y < 0) // Up
             {
-                if (targetTile.FourWalls.HasFlag(Walls.Right))
+                if (targetTile.FourWalls.HasFlag(Walls.Down) || currentTile.FourWalls.HasFlag(Walls.Up))
                 {
                     return true;
                 }
             }
-            else if (direction.X > 0) // right
+            else if (direction.Y > 0)   // Down
             {
-                if (targetTile.FourWalls.HasFlag(Walls.Left))
+                if (targetTile.FourWalls.HasFlag(Walls.Up) || currentTile.FourWalls.HasFlag(Walls.Down))
                 {
                     return true;
                 }
             }
-
-            if (direction.Y < 0) // up
+            if (direction.X < 0) // Left
             {
-                if (targetTile.FourWalls.HasFlag(Walls.Down))
+                if (targetTile.FourWalls.HasFlag(Walls.Right) || currentTile.FourWalls.HasFlag(Walls.Left))
                 {
                     return true;
                 }
             }
-            else if (direction.Y > 0)
+            else if (direction.X > 0) // Right
             {
-                if (targetTile.FourWalls.HasFlag(Walls.Up))
+                if (targetTile.FourWalls.HasFlag(Walls.Left) || currentTile.FourWalls.HasFlag(Walls.Right))
                 {
                     return true;
                 }
             }
-
             return false;
         }
 

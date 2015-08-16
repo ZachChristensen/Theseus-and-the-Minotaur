@@ -1,9 +1,12 @@
-﻿namespace MinoThesGameConsoleApp
+﻿using System;
+
+namespace MinoThesGameConsoleApp
 {
-    class Minotaur : Thing
+    class Minotaur : Character
     {
         public Minotaur(int x, int y) : base(x, y)
         {
         }
+
     }
 }
