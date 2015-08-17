@@ -10,3 +10,9 @@ C:\Users\misa9_000\Documents\SourceTree\Theseus-and-the-Minotaur\Misa\MinoThesGa
 C:\Users\misa9_000\Documents\SourceTree\Theseus-and-the-Minotaur\Misa\MinoThesGameConsoleApp\MinoThesGameConsoleApp\bin\Debug\MinoThesGameConsoleApp.exe
 C:\Users\misa9_000\Documents\SourceTree\Theseus-and-the-Minotaur\Misa\MinoThesGameConsoleApp\MinoThesGameConsoleApp\bin\Debug\MinoThesGameConsoleApp.pdb
 C:\Users\misa9_000\Documents\SourceTree\Theseus-and-the-Minotaur\Misa\MinoThesGameConsoleApp\MinoThesGameConsoleApp\obj\Debug\MinoThesGameConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\misa9_000\Documents\GitHub\Theseus-and-the-Minotaur\Misa\MinoThesGameConsoleApp\MinoThesGameConsoleApp\bin\Debug\MinoThesGameConsoleApp.exe.config
+C:\Users\misa9_000\Documents\GitHub\Theseus-and-the-Minotaur\Misa\MinoThesGameConsoleApp\MinoThesGameConsoleApp\obj\Debug\MinoThesGameConsoleApp.exe
+C:\Users\misa9_000\Documents\GitHub\Theseus-and-the-Minotaur\Misa\MinoThesGameConsoleApp\MinoThesGameConsoleApp\obj\Debug\MinoThesGameConsoleApp.pdb
+C:\Users\misa9_000\OneDrive\PR283\MinoThesGameConsoleApp\MinoThesGameConsoleApp\bin\Debug\MinoThesGameConsoleApp.exe.config
+C:\Users\misa9_000\OneDrive\PR283\MinoThesGameConsoleApp\MinoThesGameConsoleApp\obj\Debug\MinoThesGameConsoleApp.exe
+C:\Users\misa9_000\OneDrive\PR283\MinoThesGameConsoleApp\MinoThesGameConsoleApp\obj\Debug\MinoThesGameConsoleApp.pdb
