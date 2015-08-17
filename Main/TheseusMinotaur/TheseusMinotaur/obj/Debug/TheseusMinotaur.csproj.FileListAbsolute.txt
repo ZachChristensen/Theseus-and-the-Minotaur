@@ -1,1 +1,7 @@
 \\adfsstud1\f-i\hzl0001\documents\visual studio 2012\Projects\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe.config
+C:\Users\Zach\GitHub\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe.config
+C:\Users\Zach\GitHub\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.csprojResolveAssemblyReference.cache
+C:\Users\Zach\GitHub\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe
+C:\Users\Zach\GitHub\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.pdb
+C:\Users\Zach\GitHub\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.exe
+C:\Users\Zach\GitHub\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.pdb

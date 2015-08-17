@@ -10,6 +10,14 @@ namespace TheseusMinotaur
     {
         static void Main(string[] args)
         {
+            new Game().Play();
+            Stop();
+        }
+
+        static void Stop()
+        {
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }

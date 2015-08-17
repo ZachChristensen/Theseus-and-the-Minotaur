@@ -25,3 +25,4 @@ C:\Users\Zach\GitHub Projects\My mino\MinoThesGameConsoleApp\obj\Debug\MinoThesG
 C:\Users\Zach\GitHub Projects\My mino\MinoThesGameConsoleApp\bin\Debug\MinoThesGameConsoleApp.exe
 C:\Users\Zach\GitHub Projects\My mino\MinoThesGameConsoleApp\bin\Debug\MinoThesGameConsoleApp.pdb
 C:\Users\Zach\GitHub Projects\My mino\MinoThesGameConsoleApp\obj\Debug\MinoThesGameConsoleApp.csprojResolveAssemblyReference.cache
+C:\Users\Zach\GitHub\Theseus-and-the-Minotaur\Zach\MinoThesGameConsoleApp\bin\Debug\MinoThesGameConsoleApp.exe.config
