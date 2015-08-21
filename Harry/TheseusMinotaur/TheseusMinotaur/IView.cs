@@ -8,5 +8,7 @@ namespace TheseusMinotaur
 {
     interface IView
     {
+        void Start();
+        void Stop();
     }
 }

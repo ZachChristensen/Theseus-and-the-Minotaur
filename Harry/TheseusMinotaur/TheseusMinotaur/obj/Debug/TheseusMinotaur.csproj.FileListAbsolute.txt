@@ -1,1 +1,7 @@
 \\adfsstud1\f-i\hzl0001\documents\visual studio 2012\Projects\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe.config
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe.config
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.pdb
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.csprojResolveAssemblyReference.cache
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.exe
+H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Harry\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.pdb
