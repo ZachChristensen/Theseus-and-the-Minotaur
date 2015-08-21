@@ -16,3 +16,6 @@ Fixed:
 	- Theseus moves all directions
 	Implemented an inverse relationship btw each Thing & the Game, so each Character
 	knows about the tile it is on.
+
+	- Working Map One
+	Coded minotaur movement

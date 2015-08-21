@@ -74,6 +74,10 @@ namespace TheseusMinotaur
         {
             return mapOne;
         }
+        public Theseus GetTheseus()
+        {
+            return theseus;
+        }
 
         /******* 
                 TESTS 
@@ -90,7 +94,7 @@ namespace TheseusMinotaur
             return output;
         }
 
-        public String TestTheseusSurroundings()
+       /* public String TestTheseusSurroundings()
         {
             //Tile[,] aMap = MapOne();
             string output = "";
@@ -104,36 +108,38 @@ namespace TheseusMinotaur
         public Tile GetTheseusSurroundings()
         {
             return mapOne[theseus.Coordinate.X, theseus.Coordinate.Y];
-        }
-        /*public void MoveLeft()
-        {
-            Tile[,] theMap = MapOne();
-            Tile currentTile = theMap[theseus.Coordinate.X, theseus.Coordinate.Y];
-            if (currentTile.MyWalls.HasFlag(TheWalls.West))
-            {
-                Console.WriteLine("blocked");
-            }
-            else if (currentTile.MyWalls.HasFlag(TheWalls.West) == false)
-            {
-                theseus.MoveLeft();
-                Console.WriteLine(theseus.Coordinate);
-            }
-        }*/
+        } */
+
         public void MoveLeft()
         {
+            Console.WriteLine("left");
             theseus.MoveLeft();
+            Console.WriteLine(theseus.Coordinate);            
+        }
+        public void MoveRight()
+        {
+            Console.WriteLine("right");
+            theseus.MoveRight();
             Console.WriteLine(theseus.Coordinate);
-           /*/ if (mapOne[theseus.Coordinate.X, theseus.Coordinate.Y].MyWalls.HasFlag(TheWalls.West) == false)
-            {
-                theseus.MoveLeft();
-            }
-            else
-            {
-                Console.WriteLine("blocked");
-            }
-            
-            Console.WriteLine(theseus.Coordinate);*/
-            
+        }
+        public void MoveUp()
+        {
+            Console.WriteLine("up");
+            theseus.MoveUp();
+            Console.WriteLine(theseus.Coordinate);
+        }
+        public void MoveDown()
+        {
+            Console.WriteLine("down");
+            theseus.MoveDown();
+            Console.WriteLine(theseus.Coordinate);
+        }
+        public void MinotaursTurn()
+        {
+            //Console.WriteLine("M turn 1");
+            minotaur.HuntThatMofo();
+            //Console.WriteLine("M turn 2");
+            //minotaur.HuntThatMofo();
         }
 
     }

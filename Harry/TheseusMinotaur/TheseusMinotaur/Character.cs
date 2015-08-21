@@ -14,12 +14,6 @@ namespace TheseusMinotaur
         {
 
         }
-        /*public TheWalls GetSurroundings()
-        {
-            Tile [,] theMap;
-            theMap = myGame.MapOne();
-            
-        }*/
         public Boolean MoveLeft()
         {
             if (myGame.GetMapOne()[Coordinate.X, Coordinate.Y].MyWalls.HasFlag(TheWalls.West) == false)

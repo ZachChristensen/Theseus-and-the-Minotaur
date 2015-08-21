@@ -12,7 +12,17 @@ namespace TheseusMinotaur
             Console.WriteLine(aGame.TestMap(aGame.GetMapOne()));
             
             aGame.MoveLeft();
+            aGame.MinotaursTurn();
+            aGame.MoveUp();
+            aGame.MinotaursTurn();
+           // aGame.MinotaursTurn();
+
+            /*
             aGame.MoveLeft();
+            aGame.MoveUp();
+            aGame.MoveDown();
+            aGame.MoveRight();
+            aGame.MoveDown();*/
           
             Console.ReadKey();
         }
