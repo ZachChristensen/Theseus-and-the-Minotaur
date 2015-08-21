@@ -11,7 +11,6 @@ namespace TheseusMinotaur
     {
         Minotaur minotaur;
         Theseus theseus;
-        Thing[][,] allMyMaps;
         Tile[,] mapOne;
 
         /**** Map Constructor */
@@ -64,8 +63,6 @@ namespace TheseusMinotaur
             // set positions of characters
             minotaur = SetMinotaur(1, 0);
             theseus = SetTheseus(1, 2);
-            // push to allMyMaps
-            allMyMaps[0] = mapOne;
         }
 
         /**** Get functions for Thing class */
@@ -153,7 +150,7 @@ namespace TheseusMinotaur
             /* The go button */
         public void Run()
         {
-            while (theseus.IsFinished() == false)
+            if (theseus.IsFinished() == false)
             {
                 while (theseus.Coordinate != minotaur.Coordinate)
                 {
@@ -161,8 +158,10 @@ namespace TheseusMinotaur
                     MinotaursTurn();
                 }
                 Console.WriteLine("Game Over!");
-                break;
-                
+            }
+            else if(theseus.IsFinished())
+            {
+                Console.WriteLine("Congrats!");
             }
         }
 
