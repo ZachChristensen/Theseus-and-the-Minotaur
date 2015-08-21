@@ -21,3 +21,8 @@ Fixed:
 
 	- Implemented U/D/L/R movement, map 1 fully works
 	(although button input sucks)
+
+
+To do:
+	- MVC
+	- Model the map, get stuff moving forreals
