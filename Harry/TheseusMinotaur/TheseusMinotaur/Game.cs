@@ -11,13 +11,10 @@ namespace TheseusMinotaur
     {
         Minotaur minotaur;
         Theseus theseus;
-        //Tile[,] Map;
+        Thing[][,] allMyMaps;
         Tile[,] mapOne;
 
-        /****
-         * Map Constructor
-         * 
-         ****/
+        /**** Map Constructor */
         public Tile[,] CreateMap(int newWidth, int newHeight) 
         {
             Tile[,] Map;
@@ -67,9 +64,11 @@ namespace TheseusMinotaur
             // set positions of characters
             minotaur = SetMinotaur(1, 0);
             theseus = SetTheseus(1, 2);
-            //return mapOne;
+            // push to allMyMaps
+            allMyMaps[0] = mapOne;
         }
 
+        /**** Get functions for Thing class */
         public Tile[,] GetMapOne()
         {
             return mapOne;
@@ -79,10 +78,7 @@ namespace TheseusMinotaur
             return theseus;
         }
 
-        /******* 
-                TESTS 
-                        **********/
-
+        /**** Test functions */
         public String TestMap(Tile[,] aMap)
         {
             string output = "";
@@ -94,22 +90,9 @@ namespace TheseusMinotaur
             return output;
         }
 
-       /* public String TestTheseusSurroundings()
-        {
-            //Tile[,] aMap = MapOne();
-            string output = "";
-            int x, y;
-            x = theseus.Coordinate.X;
-            y = theseus.Coordinate.Y;
-            output += "Theseus is on tile " + theseus.Coordinate + "and he is blocked " + mapOne[x, y].MyWalls;
-            return output;
-        }
-
-        public Tile GetTheseusSurroundings()
-        {
-            return mapOne[theseus.Coordinate.X, theseus.Coordinate.Y];
-        } */
-
+  
+        /**** Game functions */
+            /* Movement*/
         public void MoveLeft()
         {
             Console.WriteLine("left");
@@ -134,6 +117,8 @@ namespace TheseusMinotaur
             theseus.MoveDown();
             Console.WriteLine(theseus.Coordinate);
         }
+
+            /*Ordering*/
         public void MinotaursTurn()
         {
             if (minotaur.Coordinate == theseus.Coordinate)
@@ -165,6 +150,7 @@ namespace TheseusMinotaur
                 MoveLeft();
             }
         }
+            /* The go button */
         public void Run()
         {
             while (theseus.IsFinished() == false)
