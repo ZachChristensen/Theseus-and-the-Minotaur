@@ -8,8 +8,7 @@ namespace TheseusMinotaur
 {
     class Theseus : Character
     {
-        public Theseus(int x, int y)
-            : base(x, y)
+        public Theseus(int x, int y) : base(x, y)
         {
 
         }

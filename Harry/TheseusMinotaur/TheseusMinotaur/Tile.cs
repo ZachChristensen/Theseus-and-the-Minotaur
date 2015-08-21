@@ -8,8 +8,7 @@ namespace TheseusMinotaur
 {
     class Tile : Thing
     {
-        public Tile(int x, int y)
-            : base(x, y)
+        public Tile(int x, int y) : base(x, y)
         {
 
         }
