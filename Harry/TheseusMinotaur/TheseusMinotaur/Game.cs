@@ -11,12 +11,17 @@ namespace TheseusMinotaur
     {
         Minotaur minotaur;
         Theseus theseus;
-        Tile[,] Map;
+        //Tile[,] Map;
+        Tile[,] mapOne;
 
-        public Tile[,] CreateMap(int newWidth, int newHeight) // Map constructor
+        /****
+         * Map Constructor
+         * 
+         ****/
+        public Tile[,] CreateMap(int newWidth, int newHeight) 
         {
+            Tile[,] Map;
             int width = newWidth, height = newHeight;
-
             Map = new Tile[width, height];
 
             for (int x = 0; x < width; x++)
@@ -31,18 +36,21 @@ namespace TheseusMinotaur
         public Theseus SetTheseus(int newX, int newY)
         {
             theseus = new Theseus(newX, newY);
+            theseus.SetGame(this);
             return theseus;
         }
         public Minotaur SetMinotaur(int newX, int newY)
         {
             minotaur = new Minotaur(newX, newY);
+            minotaur.SetGame(this);
             return minotaur;
         }
 
-        public Tile[,] MapOne()
+        public void MapOne()
         {
             // create the map
-            Tile[,] mapOne = CreateMap(4, 3);
+            //Tile[,] 
+            mapOne = CreateMap(4, 3);
             mapOne[0, 0].MyWalls = TheWalls.North | TheWalls.West;
             mapOne[1, 0].MyWalls = TheWalls.North | TheWalls.South;
             mapOne[2, 0].MyWalls = TheWalls.North | TheWalls.East;
@@ -59,6 +67,11 @@ namespace TheseusMinotaur
             // set positions of characters
             minotaur = SetMinotaur(1, 0);
             theseus = SetTheseus(1, 2);
+            //return mapOne;
+        }
+
+        public Tile[,] GetMapOne()
+        {
             return mapOne;
         }
 
@@ -79,50 +92,49 @@ namespace TheseusMinotaur
 
         public String TestTheseusSurroundings()
         {
-            Tile[,] aMap = MapOne();
+            //Tile[,] aMap = MapOne();
             string output = "";
             int x, y;
             x = theseus.Coordinate.X;
             y = theseus.Coordinate.Y;
-            output += "Theseus is on tile " + theseus.Coordinate + "and he is blocked " + aMap[x, y].MyWalls;
+            output += "Theseus is on tile " + theseus.Coordinate + "and he is blocked " + mapOne[x, y].MyWalls;
             return output;
         }
 
         public Tile GetTheseusSurroundings()
         {
-            Tile[,] theMap = MapOne();
-            return theMap[theseus.Coordinate.X, theseus.Coordinate.Y];
+            return mapOne[theseus.Coordinate.X, theseus.Coordinate.Y];
         }
-        public void IsBlockedLeft()
+        /*public void MoveLeft()
         {
-            //Tile[,] theMap = MapOne();
-            Tile currentTile = GetTheseusSurroundings();
+            Tile[,] theMap = MapOne();
+            Tile currentTile = theMap[theseus.Coordinate.X, theseus.Coordinate.Y];
             if (currentTile.MyWalls.HasFlag(TheWalls.West))
             {
                 Console.WriteLine("blocked");
             }
-            else
+            else if (currentTile.MyWalls.HasFlag(TheWalls.West) == false)
             {
-                theseus.Coordinate.X = theseus.Coordinate.X - 1;
-            }
-
-        }
-
-        /*public bool MoveTheseusLeft()
-        {
-            Tile currentTile = GetTheseusSurroundings();
-            if (currentTile.MyWalls.HasFlag(TheWalls.West) == false)
-            {
-                theseus.Coordinate.X -= 1;
-                return true;
-            }
-            else //if (currentTile.MyWalls.HasFlag(TheWalls.West) == true)
-            {
-                Console.WriteLine("BLOCKED");
-                return false;
+                theseus.MoveLeft();
+                Console.WriteLine(theseus.Coordinate);
             }
         }*/
-
+        public void MoveLeft()
+        {
+            theseus.MoveLeft();
+            Console.WriteLine(theseus.Coordinate);
+           /*/ if (mapOne[theseus.Coordinate.X, theseus.Coordinate.Y].MyWalls.HasFlag(TheWalls.West) == false)
+            {
+                theseus.MoveLeft();
+            }
+            else
+            {
+                Console.WriteLine("blocked");
+            }
+            
+            Console.WriteLine(theseus.Coordinate);*/
+            
+        }
 
     }
 }

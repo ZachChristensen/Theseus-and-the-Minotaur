@@ -11,10 +11,16 @@ namespace TheseusMinotaur
     class Thing
     {
         public Point Coordinate;
+        protected Game myGame;
 
         public Thing(int x, int y)
         {
             Coordinate = new Point(x, y);
+        }
+
+        public void SetGame(Game aGame)
+        {
+            myGame = aGame;
         }
 
 

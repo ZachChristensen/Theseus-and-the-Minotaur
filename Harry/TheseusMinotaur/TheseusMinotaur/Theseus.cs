@@ -12,9 +12,6 @@ namespace TheseusMinotaur
         {
 
         }
-        public void MoveLeft()
-        {
-            this.Coordinate.Offset(-1, 0);
-        }
+       
     }
 }

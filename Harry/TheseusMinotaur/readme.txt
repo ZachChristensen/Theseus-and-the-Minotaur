@@ -8,3 +8,11 @@ Fixed:
 
 To do:
 	- get shit moving
+
+
+21st Aug:
+
+Fixed:
+	- Theseus moves all directions
+	Implemented an inverse relationship btw each Thing & the Game, so each Character
+	knows about the tile it is on.

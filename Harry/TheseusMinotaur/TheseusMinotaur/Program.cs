@@ -9,15 +9,11 @@ namespace TheseusMinotaur
         {
             Game aGame = new Game();
             aGame.MapOne();
-            Console.WriteLine(aGame.TestMap(aGame.MapOne()));
-            Console.WriteLine(aGame.TestTheseusSurroundings());
-            aGame.IsBlockedLeft();
-            Console.WriteLine(aGame.TestTheseusSurroundings());
-
-            /*aGame.MoveTheseusLeft();
-            Console.WriteLine(aGame.TestTheseusSurroundings());
-            aGame.MoveTheseusLeft();
-            Console.WriteLine(aGame.TestTheseusSurroundings());*/
+            Console.WriteLine(aGame.TestMap(aGame.GetMapOne()));
+            
+            aGame.MoveLeft();
+            aGame.MoveLeft();
+          
             Console.ReadKey();
         }
     }
