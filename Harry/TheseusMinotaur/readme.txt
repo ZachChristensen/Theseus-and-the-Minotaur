@@ -20,3 +20,4 @@ Fixed:
 	- Coded minotaur movement
 
 	- Implemented U/D/L/R movement, map 1 fully works
+	(although button input sucks)
