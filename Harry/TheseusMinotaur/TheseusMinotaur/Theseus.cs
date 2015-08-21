@@ -12,6 +12,17 @@ namespace TheseusMinotaur
         {
 
         }
-       
+        public Boolean IsFinished()
+        {
+            if (myGame.GetMapOne()[Coordinate.X, Coordinate.Y].MyWalls.HasFlag(TheWalls.End))
+            {
+                Console.WriteLine("Congrats!");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

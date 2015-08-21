@@ -136,10 +136,48 @@ namespace TheseusMinotaur
         }
         public void MinotaursTurn()
         {
-            //Console.WriteLine("M turn 1");
-            minotaur.HuntThatMofo();
-            //Console.WriteLine("M turn 2");
-            //minotaur.HuntThatMofo();
+            if (minotaur.Coordinate == theseus.Coordinate)
+            {
+                Console.WriteLine("tastes like chicken");
+            }
+            else
+            {
+                minotaur.HuntThatMofo();
+            }
+        }
+        public void PlayersTurn()
+        {
+            Console.WriteLine("Your turn");
+            if (Console.ReadKey().Key == ConsoleKey.UpArrow)
+            {
+                MoveUp();
+            }
+            if (Console.ReadKey().Key == ConsoleKey.DownArrow)
+            {
+                MoveDown();
+            }
+            if (Console.ReadKey().Key == ConsoleKey.RightArrow)
+            {
+                MoveRight();
+            }
+            if (Console.ReadKey().Key == ConsoleKey.LeftArrow)
+            {
+                MoveLeft();
+            }
+        }
+        public void Run()
+        {
+            while (theseus.IsFinished() == false)
+            {
+                while (theseus.Coordinate != minotaur.Coordinate)
+                {
+                    PlayersTurn();
+                    MinotaursTurn();
+                }
+                Console.WriteLine("Game Over!");
+                break;
+                
+            }
         }
 
     }

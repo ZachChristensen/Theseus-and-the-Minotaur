@@ -10,11 +10,14 @@ namespace TheseusMinotaur
             Game aGame = new Game();
             aGame.MapOne();
             Console.WriteLine(aGame.TestMap(aGame.GetMapOne()));
-            
-            aGame.MoveLeft();
+            aGame.Run();
+
+
+
+           /* aGame.MoveLeft();
             aGame.MinotaursTurn();
             aGame.MoveUp();
-            aGame.MinotaursTurn();
+            aGame.MinotaursTurn();/*
            // aGame.MinotaursTurn();
 
             /*

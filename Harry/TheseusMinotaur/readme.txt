@@ -17,5 +17,6 @@ Fixed:
 	Implemented an inverse relationship btw each Thing & the Game, so each Character
 	knows about the tile it is on.
 
-	- Working Map One
-	Coded minotaur movement
+	- Coded minotaur movement
+
+	- Implemented U/D/L/R movement, map 1 fully works
