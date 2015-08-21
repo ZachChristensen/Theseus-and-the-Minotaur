@@ -8,10 +8,12 @@ namespace TheseusMinotaur
 {
     class Tile : Thing
     {
+        public Tile(int x, int y) : base(x, y)
+        {
+
+        }
         public TheWalls MyWalls{get; set;}
 
-        public Tile( TheWalls walls) {
-            MyWalls = walls;
-        }
     }
+    
 }

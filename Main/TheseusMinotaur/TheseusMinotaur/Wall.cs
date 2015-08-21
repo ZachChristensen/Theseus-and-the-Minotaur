@@ -16,7 +16,4 @@ namespace TheseusMinotaur
         West = 0x8,
         End = 0x10
     }
-    class Wall//what does this class do?
-    {
-    }
 }
