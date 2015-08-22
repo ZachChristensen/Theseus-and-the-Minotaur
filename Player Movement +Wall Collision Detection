@@ -1,1 +1,41 @@
-
+void MainFormKeyDown(object sender, KeyEventArgs e)
+		{
+			int x = Player.Location.X;
+            int y = Player.Location.Y;
+		
+            if ((Player.Top == Wall.Bottom && Player.Left >= Wall.Left-20 && Player.Right <= Wall.Right+20) == false)
+            {
+				if (e.KeyCode == Keys.Up)
+				{
+					y -= 10;
+					Player.Location = new Point(x,y);
+				}
+            }
+            
+            if ((Player.Bottom == Wall.Top && Player.Left >= Wall.Left-20 && Player.Right <= Wall.Right+20) == false)
+            {
+				if (e.KeyCode == Keys.Down)
+				{
+					y += 10;
+					Player.Location = new Point(x,y);
+				}
+            }
+			
+            if ((Player.Left == Wall.Right && Player.Top >= Wall.Top-20 && Player.Bottom <= Wall.Bottom+20) == false)
+            {
+				if (e.KeyCode == Keys.Left)
+				{
+					x -= 10;
+					Player.Location = new Point(x,y);
+				}
+            }
+			
+            if ((Player.Right == Wall.Left && Player.Top >= Wall.Top-20 && Player.Bottom <= Wall.Bottom+20) == false)
+            {
+				if (e.KeyCode == Keys.Right)
+				{
+					x += 10;
+					Player.Location = new Point(x,y);
+				}
+            }
+		}
