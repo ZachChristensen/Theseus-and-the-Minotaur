@@ -9,12 +9,7 @@ namespace TheseusMinotaur
 {
     class Character : Thing
     {
-        public void MoveCharacter(Point position, string direction)
-        {
-
-        }
-
-        public void CheckForWall(Point position, string direction)
+        public Character(int x, int y) : base(x, y)
         {
 
         }

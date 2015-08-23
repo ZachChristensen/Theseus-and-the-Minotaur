@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace TheseusMinotaur
 {
@@ -10,6 +7,27 @@ namespace TheseusMinotaur
     {
         static void Main(string[] args)
         {
+            Game aGame = new Game();
+            aGame.MapOne();
+            Console.WriteLine(aGame.TestMap(aGame.GetMapOne()));
+            aGame.Run();
+
+
+
+           /* aGame.MoveLeft();
+            aGame.MinotaursTurn();
+            aGame.MoveUp();
+            aGame.MinotaursTurn();/*
+           // aGame.MinotaursTurn();
+
+            /*
+            aGame.MoveLeft();
+            aGame.MoveUp();
+            aGame.MoveDown();
+            aGame.MoveRight();
+            aGame.MoveDown();*/
+          
+            Console.ReadKey();
         }
     }
 }

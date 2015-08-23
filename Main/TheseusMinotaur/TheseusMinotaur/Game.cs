@@ -13,7 +13,7 @@ namespace TheseusMinotaur
         Theseus theseus;
         Tile[,] Map1;
 
-        public void CreateMap1() //UNTESTED
+        public void CreateMap1() //UNTESTED -- doesn't work, need to create each tile separately - Harry
         {
             Map1 = new Tile[4, 3];
             //[x,y] TheWalls.North | TheWalls.South |TheWalls.West | TheWalls.East |TheWalls.End

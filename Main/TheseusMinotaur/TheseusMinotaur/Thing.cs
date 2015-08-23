@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace TheseusMinotaur
 {
-   
+
     class Thing
     {
-        public struct Coordinate
+        public Point Coordinate;
+
+        public Thing(int x, int y)
         {
-            byte x;
-            byte y;
-            public Coordinate(byte newX, byte newY)
-            {
-                x = newX;
-                y = newY;
-            }
+            Coordinate = new Point(x, y);
         }
+
+
     }
 }
