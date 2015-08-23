@@ -13,3 +13,6 @@ C:\Users\Mounika\Dropbox\course\Week 4\Assignment\Mounika\GameConsoleApplication
 C:\Users\moy0037\Dropbox\course\Week 4\Assignment\Mounika\GameConsoleApplication\GameConsoleApplication\bin\Debug\GameConsoleApplication.exe.config
 C:\Users\moy0037\Dropbox\course\Week 4\Assignment\Mounika\GameConsoleApplication\GameConsoleApplication\obj\Debug\GameConsoleApplication.exe
 C:\Users\moy0037\Dropbox\course\Week 4\Assignment\Mounika\GameConsoleApplication\GameConsoleApplication\obj\Debug\GameConsoleApplication.pdb
+C:\Users\misa9_000\Documents\SourceTree\Theseus-and-the-Minotaur\Mounika\GameConsoleApplication\GameConsoleApplication\bin\Debug\GameConsoleApplication.exe.config
+C:\Users\misa9_000\Documents\SourceTree\Theseus-and-the-Minotaur\Mounika\GameConsoleApplication\GameConsoleApplication\obj\Debug\GameConsoleApplication.exe
+C:\Users\misa9_000\Documents\SourceTree\Theseus-and-the-Minotaur\Mounika\GameConsoleApplication\GameConsoleApplication\obj\Debug\GameConsoleApplication.pdb

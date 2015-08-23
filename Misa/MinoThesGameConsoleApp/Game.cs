@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace MinoThesGameConsoleApp
 {
     class Game
     {
         protected Tile[,] Map;
+        public Tile[,] AsciiMap;
         public Minotaur Minotaur;
         public Theseus Theseus;
         public ConsoleKeyInfo KeyInfo;
         public bool TheseusAlive = true;
+        public bool TheseusEscaped = false;
 
         public void Initialise()
         {
@@ -21,9 +25,10 @@ namespace MinoThesGameConsoleApp
 
         public void CreateMap()
         {
-            int width = 3;
+            int width = 4;
             int height = 3;
             Map = new Tile[width, height];
+
 
             for (int x = 0; x < width; x++)
             {
@@ -32,35 +37,7 @@ namespace MinoThesGameConsoleApp
                     Map[x, y] = new Tile(x, y);
                 }
             }
-
-//            Map[1, 1].FourWalls = Walls.Up | Walls.Right | Walls.Down;
-//
-//            // create outside boundry walls
-//            Map[0, 0].FourWalls = Walls.Up | Walls.Left;    // upper left corner
-//            Map[0, height - 1].FourWalls = Walls.Up | Walls.Right;    // upper right corner
-//            Map[width - 1, 0].FourWalls = Walls.Down | Walls.Left;  // bottom left corner
-//            Map[width - 1, height - 1].FourWalls = Walls.Down | Walls.Right;    // bottom right corner
-//            
-//
-//            for (int up = 1; up < width - 1; up++)  // up side walls
-//            {
-//                Map[up, 0].FourWalls = Walls.Up;
-//            }
-//
-//            for (int down = 1; down < width - 1; down++)    // down side walls
-//            {
-//                Map[down, width - 1].FourWalls = Walls.Down;
-//            }
-//
-//            for (int left = 1; left < height - 1; left++)   // left side walls
-//            {
-//                Map[0, left].FourWalls = Walls.Left;
-//            }
-//
-//            for (int right = 1; right < height - 1; right++)    // right side walls
-//            {
-//                Map[height - 1, right].FourWalls = Walls.Right;
-//            }
+            AsciiMap = Map;
 
             Map[0, 0].FourWalls = Walls.Up | Walls.Left;
             Map[0, 1].FourWalls = Walls.Left;
@@ -71,8 +48,112 @@ namespace MinoThesGameConsoleApp
             Map[1, 2].FourWalls = Walls.Down;
 
             Map[2, 0].FourWalls = Walls.Up | Walls.Right;
-            Map[2, 1].FourWalls = Walls.Right;
+            Map[2, 1].FourWalls = Walls.None;
             Map[2, 2].FourWalls = Walls.Down | Walls.Right;
+
+            Map[3, 0].FourWalls = Walls.None;
+            Map[3, 1].FourWalls = Walls.Up | Walls.Down | Walls.Goal;
+            Map[3, 2].FourWalls = Walls.None;
+        }
+
+        public void PrintMap()
+        {
+            int mapWidth = Map.GetLength(0);
+            int mapHeight = Map.GetLength(1);
+            
+            string ascii = "";
+            string asciiBottomLine = "";
+            
+            for (int row = 0; row < mapHeight; row++)
+            {
+                if ((row != mapHeight-1))
+                {
+                    for (int column = 0; column < mapWidth; column++)
+                    {
+                        if ((row == 0 && column == 0) || (column < mapWidth))
+                        {
+                            ascii += ".";
+                        }
+                        if (Map[column, row].FourWalls.HasFlag(Walls.Up))
+                        {
+                            ascii += "___";
+                        }
+                        if (!(Map[column, row].FourWalls.HasFlag(Walls.Up) || Map[column, row].FourWalls.HasFlag(Walls.Down)) &&
+                            (Map[column, row].FourWalls.HasFlag(Walls.Left) || Map[column, row].FourWalls.HasFlag(Walls.Right)))
+                        {
+                            ascii += "   ";
+                        }
+                        if (!(Map[column, row].FourWalls.HasFlag(Walls.Up) || Map[column, row].FourWalls.HasFlag(Walls.Down) ||
+                            Map[column, row].FourWalls.HasFlag(Walls.Left) || Map[column, row].FourWalls.HasFlag(Walls.Right)))
+                        {
+                            ascii += "   ";
+                        }
+                    }
+                }
+                
+                ascii += "\n";
+
+                for (int column = 0; column < mapWidth; column++)
+                {
+                    if ( ((Map[column, row].FourWalls.HasFlag(Walls.Up) || Map[column, row].FourWalls.HasFlag(Walls.Down)) &&
+                        !(Map[column, row].FourWalls.HasFlag(Walls.Left) || Map[column, row].FourWalls.HasFlag(Walls.Right))) )
+                    {
+                        ascii += "     ";
+                    }
+                    if (Map[column, row].FourWalls.HasFlag(Walls.Left))
+                    {
+                        ascii += "|   ";
+                    }
+                    if (Map[column, row].FourWalls.HasFlag(Walls.Right))
+                    {
+                        ascii += "   |";
+                    }
+                    if (!(Map[column, row].FourWalls.HasFlag(Walls.Up) || Map[column, row].FourWalls.HasFlag(Walls.Down) ||
+                        Map[column, row].FourWalls.HasFlag(Walls.Left) || Map[column, row].FourWalls.HasFlag(Walls.Right)))
+                    {
+                        ascii += "     ";
+                    }
+                    if (column == Minotaur.Position.X && row == Minotaur.Position.Y)
+                    {
+                        StringBuilder newAscii = new StringBuilder(ascii);
+                        newAscii[ascii.Length - 3] = 'M';
+                        ascii = newAscii.ToString();
+                    }
+                    if (column == Theseus.Position.X && row == Theseus.Position.Y)
+                    {
+                        StringBuilder newAscii = new StringBuilder(ascii);
+                        newAscii[ascii.Length - 3] = 'T';
+                        ascii = newAscii.ToString();
+                    }
+                }
+                ascii += "\n";
+
+                if (row != 0 )
+                {
+                    for (int column = 0; column < mapWidth; column++)
+                    {
+                        if ((row == mapHeight - 1 && column == 0) || (column < mapWidth))
+                        {
+                            ascii += ".";
+                        }
+                        if (Map[column, row].FourWalls.HasFlag(Walls.Down))
+                        {
+                            ascii += "___";
+                        }
+                        if (!(Map[column, row].FourWalls.HasFlag(Walls.Up) || Map[column, row].FourWalls.HasFlag(Walls.Down)) &&
+                            (Map[column, row].FourWalls.HasFlag(Walls.Left) || Map[column, row].FourWalls.HasFlag(Walls.Right)))
+                        {
+                            ascii += "   ";
+                        }
+                        if (!(Map[column, row].FourWalls.HasFlag(Walls.Up) || Map[column, row].FourWalls.HasFlag(Walls.Down) ||
+                            Map[column, row].FourWalls.HasFlag(Walls.Left) || Map[column, row].FourWalls.HasFlag(Walls.Right)))
+                        {
+                            ascii += "   ";
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(ascii);
         }
 
         public void PrintGridCoordination()
@@ -95,25 +176,34 @@ namespace MinoThesGameConsoleApp
 
         public void Play()
         {
-            while (TheseusAlive)
+            Initialise();
+            PrintMap();
+            while (TheseusAlive || !TheseusEscaped)
             {
+                Console.WriteLine("\nEnter Arrow keys or WASD keys to move Theseus.\n");
                 while (!MoveTheseus())
                 {
-                    Console.WriteLine("Theseus can't move that way");
+                    Console.WriteLine("\nTheseus can't move that way");
                 }
-
-                Console.WriteLine("Theseus has moved to {0}", Theseus.Position);
+                Console.Clear();
                 MoveMinotaur(Theseus.Position); // 1st move
-                Console.WriteLine("Minotaur has moved to {0}", Minotaur.Position);
-
                 MoveMinotaur(Theseus.Position); // 2nd move
-                Console.WriteLine("Minotaur has moved to {0}\n", Minotaur.Position);
 
                 if (IsMinotaurNextToTheseus())
                 {
-                    Console.WriteLine("Minotaur killed Theseus...");
                     TheseusAlive = false;
+                    PrintMap();
+                    Console.WriteLine("\nMinotaur killed Theseus...");
+                    break;
                 }
+                if (Map[Theseus.Position.X, Theseus.Position.Y].FourWalls.HasFlag(Walls.Goal))
+                {
+                    TheseusEscaped = true;
+                    PrintMap();
+                    Console.WriteLine("\nTheseus escaped safely!!!");
+                    break;
+                }
+                PrintMap();
             }
         }
 
@@ -121,7 +211,6 @@ namespace MinoThesGameConsoleApp
         {
             if (Minotaur.Position == Theseus.Position)
             {
-                Console.WriteLine("Minotaur wound up his arm!");
                 return true;
             }
             return false;
@@ -248,6 +337,5 @@ namespace MinoThesGameConsoleApp
             }
             return false;
         }
-
     }
 }
