@@ -86,9 +86,47 @@ namespace TheseusMinotaur
         {
             return true;
         }
-        public bool IsWall(Character character, Point direction) // TODO:
+
+        public bool IsWall(Character character, Point direction) //Any other corner cases?
         {
-            return false;
+            Point currentPosition = new Point(character.Coordinate.X, character.Coordinate.Y);
+            Tile currentTile = Map1[currentPosition.X, currentPosition.Y];
+
+            Point nextPosition = new Point(character.Coordinate.X + direction.X, character.Coordinate.Y + direction.Y);
+            Tile nextTile = Map1[nextPosition.X, nextPosition.Y];
+            
+            // Beyond boundaries
+            if (nextPosition.X < 0 || nextPosition.X > Map1.GetLength(0) || nextPosition.Y < 0 || nextPosition.Y > Map1.GetLength(1))
+            {
+                return true;
+            }
+
+            // Stay still - Invalid
+            if (currentPosition.X == nextPosition.X && currentPosition.Y == nextPosition.Y)
+            {
+                return true;
+            }
+
+
+            if (currentPosition.X > nextPosition.X) // Left
+            { 
+                return currentTile.MyWalls.HasFlag(TheWalls.West);
+            }
+            else if (currentPosition.X < currentPosition.X) // Right
+            {
+                return currentTile.MyWalls.HasFlag(TheWalls.East);
+            }
+            else
+            {
+                if (currentPosition.Y > currentPosition.Y) // Up
+                {
+                    return currentTile.MyWalls.HasFlag(TheWalls.North);
+                }
+                else // Down
+                {
+                    return currentTile.MyWalls.HasFlag(TheWalls.South);
+                }
+            }
         }
     
         public void Play()
