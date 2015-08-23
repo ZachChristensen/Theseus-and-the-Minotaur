@@ -8,3 +8,9 @@ C:\Users\Zach\GitHub\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinota
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe.config
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.exe
 H:\2015\semester 2\PR 283 C#\Theseus\Theseus-and-the-Minotaur\Main\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.pdb
+C:\workspace\Assignment\Main\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe.config
+C:\workspace\Assignment\Main\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.exe
+C:\workspace\Assignment\Main\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.pdb
+C:\Users\Zach\Code Projects\TheseusMinotaur\TheseusMinotaur\bin\Debug\TheseusMinotaur.exe.config
+C:\Users\Zach\Code Projects\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.exe
+C:\Users\Zach\Code Projects\TheseusMinotaur\TheseusMinotaur\obj\Debug\TheseusMinotaur.pdb
