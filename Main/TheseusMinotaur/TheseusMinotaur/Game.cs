@@ -73,16 +73,17 @@ namespace TheseusMinotaur
         {
             if (!direction.IsEmpty)
             {
-                return MoveCharacter(theseus, direction);
+                bool theseusMoved = MoveCharacter(theseus, direction);
+                if (theseusMoved)
+                {
+                    return IsExit(theseus);
+                }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
 
-        public bool MinotaurTurn()//return false if it catches theseus
+        public bool MinotaurTurn()//return false if it catches theseus ??
         {
             return true;
         }
@@ -128,6 +129,22 @@ namespace TheseusMinotaur
                 }
             }
         }
+
+        public bool IsExit(Character character) // Check if thesesus is at Exit 'after' his every move
+        {
+            Point currentPosition = new Point(character.Coordinate.X, character.Coordinate.Y);
+            Tile currentTile = Map1[currentPosition.X, currentPosition.Y];
+
+            if (currentTile.MyWalls.HasFlag(TheWalls.End))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    
     
         public void Play()
         {
