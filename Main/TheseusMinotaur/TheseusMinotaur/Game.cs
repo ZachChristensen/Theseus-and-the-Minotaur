@@ -69,8 +69,39 @@ namespace TheseusMinotaur
             }
         }
 
-        public bool TheseusTurn(Point direction)//return true if he moves to the exit - return true only in this case??
+        public Point GetTheseusNextMove()
         {
+            Console.WriteLine("Theseus next move - Press Up, Down, Right or Left arrows");
+            ConsoleKeyInfo theseusMove = Console.ReadKey();
+
+            if (theseusMove.Key == ConsoleKey.UpArrow)
+            {
+                return new Point(theseus.Coordinate.X, theseus.Coordinate.Y - 1);
+            }
+            if (theseusMove.Key == ConsoleKey.DownArrow)
+            {
+                return new Point(theseus.Coordinate.X, theseus.Coordinate.Y + 1);
+            }
+            if (theseusMove.Key == ConsoleKey.LeftArrow)
+            {
+                return new Point(theseus.Coordinate.X - 1, theseus.Coordinate.Y);
+            }
+            if (theseusMove.Key == ConsoleKey.RightArrow)
+            {
+                return new Point(theseus.Coordinate.X + 1, theseus.Coordinate.Y);
+            }
+            if (theseusMove.Key == ConsoleKey.D)
+            {
+                return new Point(theseus.Coordinate.X, theseus.Coordinate.Y);
+            }
+
+            return new Point();
+        }
+
+        public bool TheseusTurn()//return true if he moves to the exit - return true only in this case??
+        {
+            Point direction = GetTheseusNextMove();
+
             if (!direction.IsEmpty)
             {
                 bool theseusMoved = MoveCharacter(theseus, direction);
