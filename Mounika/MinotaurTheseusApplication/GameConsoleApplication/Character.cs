@@ -5,15 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace GameConsoleApplication
+namespace MinotaurTheseusApplication
 {
-    class Thing
+    class Character : Thing
     {
-        public Point Position;
-
-        public Thing(int x, int y)
+        public Character(int x, int y) : base(x, y)
         {
-            Position = new Point(x, y);
+
         }
     }
 }

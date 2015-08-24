@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace GameConsoleApplication
+namespace MinotaurTheseusApplication
 {
     public static class Move
     {

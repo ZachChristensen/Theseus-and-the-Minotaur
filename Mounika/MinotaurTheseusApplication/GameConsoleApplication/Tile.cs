@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameConsoleApplication
+namespace MinotaurTheseusApplication
 {
-    class Minotaur : Thing
+    class Tile : Thing
     {
-        public Minotaur(int x, int y) : base(x, y)
+        public Tile(int x, int y) : base(x, y)
         {
+
         }
+
+        public Walls FourWalls { get; set; }
     }
 }

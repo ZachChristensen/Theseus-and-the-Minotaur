@@ -1,0 +1,6 @@
+C:\workspace\Assignment\Mounika\GameConsoleApplication\GameConsoleApplication\bin\Debug\GameConsoleApplication.exe.config
+C:\workspace\Assignment\Mounika\GameConsoleApplication\GameConsoleApplication\obj\Debug\GameConsoleApplication.exe
+C:\workspace\Assignment\Mounika\GameConsoleApplication\GameConsoleApplication\obj\Debug\GameConsoleApplication.pdb
+C:\workspace\Assignment\Mounika\MinotaurTheseusApplication\GameConsoleApplication\bin\Debug\GameConsoleApplication.exe.config
+C:\workspace\Assignment\Mounika\MinotaurTheseusApplication\GameConsoleApplication\obj\Debug\GameConsoleApplication.exe
+C:\workspace\Assignment\Mounika\MinotaurTheseusApplication\GameConsoleApplication\obj\Debug\GameConsoleApplication.pdb
