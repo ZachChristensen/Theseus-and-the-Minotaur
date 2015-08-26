@@ -1,0 +1,10 @@
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\bin\Debug\T_and_M.exe.config
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\bin\Debug\T_and_M.exe
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\bin\Debug\T_and_M.pdb
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\obj\Debug\T_and_M.csprojResolveAssemblyReference.cache
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\obj\Debug\T_and_M.MazeForm.resources
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\obj\Debug\T_and_M.Properties.Resources.resources
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\obj\Debug\T_and_M.csproj.GenerateResource.Cache
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\obj\Debug\T_and_M.exe
+c:\users\user-pc\documents\visual studio 2015\Projects\T_and_M\T_and_M\obj\Debug\T_and_M.pdb
+C:\Users\User-PC\Documents\Visual Studio 2015\Projects\T_and_M\T_and_M\obj\Debug\T_and_M.Resource.resources
