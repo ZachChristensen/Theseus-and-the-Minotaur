@@ -12,13 +12,13 @@ namespace MinotaurTheseusApplication
         public Tile[,] map;
         public Minotaur minotaur;
         public Theseus theseus;
-        public Point theseusCurrentPosition;
+        //public Point theseusCurrentPosition;
 
         public void CreateMap1()
         {
-            map = new Tile[4, 3]; // Maze 1 is 4X3
+            map = new Tile[3, 3]; // Maze 1 is 3X3
 
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < 3; x++)
             {
                 for (int y = 0; y < 3; y++)
                 {
@@ -29,20 +29,29 @@ namespace MinotaurTheseusApplication
         }
 
         Tile[,] BuildMaze1(Tile[,] map)
-        {
-            map[0, 0].FourWalls.HasFlag(Walls.North | Walls.West);
-            map[1, 0].FourWalls.HasFlag(Walls.North);
-            map[2, 0].FourWalls.HasFlag(Walls.North | Walls.East);
-            map[3, 0].FourWalls.HasFlag(Walls.None);
-            map[0, 1].FourWalls.HasFlag(Walls.West);
-            map[1, 1].FourWalls.HasFlag(Walls.North | Walls.South | Walls.East);
-            map[2, 1].FourWalls.HasFlag(Walls.None);
-            map[3, 1].FourWalls.HasFlag(Walls.North | Walls.South | Walls.East | Walls.End);
-            map[0, 2].FourWalls.HasFlag(Walls.South | Walls.West);
-            map[1, 2].FourWalls.HasFlag(Walls.South);
-            map[2, 2].FourWalls.HasFlag(Walls.South | Walls.East);
-            map[3, 2].FourWalls.HasFlag(Walls.None);
+        {            
+            map[0, 0].FourWalls = Walls.North | Walls.West;
+            map[1, 0].FourWalls = Walls.North | Walls.South;
+            map[2, 0].FourWalls  = Walls.North | Walls.East;
+            map[0, 1].FourWalls = Walls.West;
+            map[1, 1].FourWalls = Walls.North | Walls.South | Walls.East;
+            map[2, 1].FourWalls = Walls.West | Walls.End;
+            map[0, 2].FourWalls = Walls.South | Walls.West;
+            map[1, 2].FourWalls = Walls.North | Walls.South;
+            map[2, 2].FourWalls = Walls.South | Walls.East;
             return map;
+        }
+
+        public void DrawMap()
+        {
+            Console.WriteLine("Size of the map is {0}/{1}", map.GetLength(0), map.GetLength(1));
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    Console.WriteLine("map {0}, {1} - {2} walls", i, j, map[i, j].FourWalls);
+                }
+            }
         }
 
         public bool MoveCharacter(Character character, Point direction)
@@ -67,23 +76,23 @@ namespace MinotaurTheseusApplication
 
             if (theseusMove.Key == ConsoleKey.UpArrow)
             {
-                return new Point(theseus.Coordinate.X, theseus.Coordinate.Y - 1);
+                return new Point(0, -1);
             }
             if (theseusMove.Key == ConsoleKey.DownArrow)
             {
-                return new Point(theseus.Coordinate.X, theseus.Coordinate.Y + 1);
+                return new Point(0, 1);
             }
             if (theseusMove.Key == ConsoleKey.LeftArrow)
             {
-                return new Point(theseus.Coordinate.X - 1, theseus.Coordinate.Y);
+                return new Point(-1, 0);
             }
             if (theseusMove.Key == ConsoleKey.RightArrow)
             {
-                return new Point(theseus.Coordinate.X + 1, theseus.Coordinate.Y);
+                return new Point(1, 0);
             }
             if (theseusMove.Key == ConsoleKey.D)
             {
-                return new Point(theseus.Coordinate.X, theseus.Coordinate.Y);
+                return new Point(0, 0);
             }
 
             return new Point();
@@ -114,40 +123,37 @@ namespace MinotaurTheseusApplication
         {
             Point currentPosition = new Point(character.Coordinate.X, character.Coordinate.Y);
             Tile currentTile = map[currentPosition.X, currentPosition.Y];
-
             Point nextPosition = new Point(character.Coordinate.X + direction.X, character.Coordinate.Y + direction.Y);
-            Tile nextTile = map[nextPosition.X, nextPosition.Y];
 
-            // Beyond boundaries
-            if (nextPosition.X < 0 || nextPosition.X > map.GetLength(0) || nextPosition.Y < 0 || nextPosition.Y > map.GetLength(1))
+            if (nextPosition.X < 0 || nextPosition.X > map.GetLength(0) || nextPosition.Y < 0 || nextPosition.Y > map.GetLength(1)) // Beyond boundaries
             {
                 return true;
             }
-
-            // Stay still - Invalid
-            if (currentPosition.X == nextPosition.X && currentPosition.Y == nextPosition.Y)
+            else if (currentPosition.X == nextPosition.X && currentPosition.Y == nextPosition.Y) // Stay still - Invalid
             {
                 return true;
-            }
-
-
-            if (currentPosition.X > nextPosition.X) // Left
-            {
-                return currentTile.FourWalls.HasFlag(Walls.West);
-            }
-            else if (currentPosition.X < currentPosition.X) // Right
-            {
-                return currentTile.FourWalls.HasFlag(Walls.East);
             }
             else
-            {
-                if (currentPosition.Y > currentPosition.Y) // Up
+            {                
+                Tile nextTile = map[nextPosition.X, nextPosition.Y];
+                if (currentPosition.X > nextPosition.X) // Left
                 {
-                    return currentTile.FourWalls.HasFlag(Walls.North);
+                    return currentTile.FourWalls.HasFlag(Walls.West);
                 }
-                else // Down
+                else if (currentPosition.X < currentPosition.X) // Right
                 {
-                    return currentTile.FourWalls.HasFlag(Walls.South);
+                    return currentTile.FourWalls.HasFlag(Walls.East);
+                }
+                else
+                {
+                    if (currentPosition.Y > currentPosition.Y) // Up
+                    {
+                        return currentTile.FourWalls.HasFlag(Walls.North);
+                    }
+                    else // Down
+                    {
+                        return currentTile.FourWalls.HasFlag(Walls.South);
+                    }
                 }
             }
         }
