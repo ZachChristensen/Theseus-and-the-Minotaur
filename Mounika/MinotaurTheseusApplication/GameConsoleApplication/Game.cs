@@ -120,6 +120,88 @@ namespace MinotaurTheseusApplication
 
         public bool MinotaurTurn()//return false if it catches theseus ??
         {
+            int minotaurMove = 1;
+            bool minotaurMoved = false;
+
+            while (minotaurMove < 3)
+            {
+                Console.WriteLine(minotaurMove);
+                Point newPosition = new Point(0, 0);
+
+                if (minotaurMove == 1)
+                {
+                    if (minotaur.Coordinate.X - 1 == theseus.Coordinate.X && minotaur.Coordinate.Y == theseus.Coordinate.Y && minotaur.Coordinate.X - 1 >= 0)
+                    {
+                        newPosition = new Point(-1, 0);
+                    }
+                    else if (minotaur.Coordinate.X + 1 == theseus.Coordinate.X && minotaur.Coordinate.Y == theseus.Coordinate.Y && minotaur.Coordinate.X - 1 >= 2)
+                    {
+                        newPosition = new Point(1, 0);
+                    }
+                    else
+                    {
+                        if (minotaur.Coordinate.X + 1 <= 2)
+                        {
+                            newPosition = new Point(1, 0);
+                        }
+
+                        else if (minotaur.Coordinate.X - 1 >= 0)
+                        {
+                            newPosition = new Point(-1, 0);
+                        }
+                    }
+
+                    minotaurMoved = MoveCharacter(minotaur, newPosition);
+
+                    if (minotaurMoved)
+                    {
+                        Console.WriteLine("moved....");
+                        minotaurMove++;
+                    }
+                }
+
+                if (minotaurMove == 2)
+                {
+                    if ((minotaur.Coordinate.X - 1 == theseus.Coordinate.X && minotaur.Coordinate.Y == theseus.Coordinate.Y && minotaur.Coordinate.X - 1 >= 0))//Check x-axis first
+                    {
+                        newPosition = new Point(-1, 0);
+
+                    }
+                    else if (minotaur.Coordinate.X + 1 == theseus.Coordinate.X && minotaur.Coordinate.Y == theseus.Coordinate.Y && minotaur.Coordinate.X + 1 <= 2)
+                    {
+                        newPosition = new Point(1, 0);
+                    }
+                    else if ((minotaur.Coordinate.Y - 1 == theseus.Coordinate.Y && minotaur.Coordinate.X == theseus.Coordinate.X && minotaur.Coordinate.Y - 1 >= 0)) //Check y-axis
+                    {
+                        newPosition = new Point(0, -1);
+                    }
+                    else if (minotaur.Coordinate.Y + 1 == theseus.Coordinate.Y && minotaur.Coordinate.X == theseus.Coordinate.X && minotaur.Coordinate.Y + 1 <= 2)
+                    {
+                        newPosition = new Point(0, 1);
+                    }
+                    else
+                    {
+                        if (minotaur.Coordinate.Y + 1 <= 2)
+                        {
+                            newPosition = new Point(0, 1);
+                        }
+
+                        else if (minotaur.Coordinate.Y - 1 >= 0)
+                        {
+                            newPosition = new Point(0, -1);
+                        }
+                    }
+                    minotaurMoved = MoveCharacter(minotaur, newPosition);
+
+                    if (minotaurMoved)
+                    {
+                        Console.WriteLine("moved....");
+                        minotaurMove++;
+                    }
+                }   
+                   
+            }
+            Console.WriteLine(">>> Minotaur is now at - {0} {1}", minotaur.Coordinate.X, minotaur.Coordinate.Y);
             return true;
         }
 
