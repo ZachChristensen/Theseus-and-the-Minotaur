@@ -12,7 +12,6 @@ namespace MinotaurTheseusApplication
         public Tile[,] map;
         public Minotaur minotaur;
         public Theseus theseus;
-        //public Point theseusCurrentPosition;
 
         public void CreateMap1()
         {
@@ -71,7 +70,7 @@ namespace MinotaurTheseusApplication
 
         public Point GetTheseusNextMove()
         {
-            Console.WriteLine("Theseus next move - Press Up, Down, Right or Left arrows");
+            Console.WriteLine("<<<< Theseus next move - Press Up, Down, Right or Left arrows");
             ConsoleKeyInfo theseusMove = Console.ReadKey();
 
             if (theseusMove.Key == ConsoleKey.UpArrow)
@@ -107,7 +106,12 @@ namespace MinotaurTheseusApplication
                 bool theseusMoved = MoveCharacter(theseus, direction);
                 if (theseusMoved)
                 {
+                    Console.WriteLine(">>> Theseus is now at - {0} {1}", theseus.Coordinate.X, theseus.Coordinate.Y);
                     return IsExit(theseus);
+                }
+                else
+                {
+                    Console.WriteLine(">>> That is an invalid move, Please try again!");
                 }
             }
             return false;
@@ -125,7 +129,7 @@ namespace MinotaurTheseusApplication
             Tile currentTile = map[currentPosition.X, currentPosition.Y];
             Point nextPosition = new Point(character.Coordinate.X + direction.X, character.Coordinate.Y + direction.Y);
 
-            if (nextPosition.X < 0 || nextPosition.X > map.GetLength(0) || nextPosition.Y < 0 || nextPosition.Y > map.GetLength(1)) // Beyond boundaries
+            if (nextPosition.X < 0 || nextPosition.X > (map.GetLength(0) - 1) || nextPosition.Y < 0 || nextPosition.Y > (map.GetLength(1) - 1)) // Beyond boundaries
             {
                 return true;
             }
@@ -140,13 +144,13 @@ namespace MinotaurTheseusApplication
                 {
                     return currentTile.FourWalls.HasFlag(Walls.West);
                 }
-                else if (currentPosition.X < currentPosition.X) // Right
+                else if (currentPosition.X < nextPosition.X) // Right
                 {
                     return currentTile.FourWalls.HasFlag(Walls.East);
                 }
                 else
                 {
-                    if (currentPosition.Y > currentPosition.Y) // Up
+                    if (currentPosition.Y > nextPosition.Y) // Up
                     {
                         return currentTile.FourWalls.HasFlag(Walls.North);
                     }
@@ -176,18 +180,20 @@ namespace MinotaurTheseusApplication
 
         public void Play()
         {
+            theseus = new Theseus(1, 2);
+            minotaur = new Minotaur(1, 0);
             CreateMap1();
-
+            DrawMap();
             bool alive = true;
             bool win = false;
 
-            //display map
-
-            while (alive && !win) //currently an infinite loop
+            while (alive && !win)
             {
                 win = TheseusTurn();//returns true if he moves on the same space as the goal
                 alive = MinotaurTurn();//returns false if minotaur move on the same space as theseus
             }
+
+            Console.WriteLine("Game end");
         }
     }
 }
