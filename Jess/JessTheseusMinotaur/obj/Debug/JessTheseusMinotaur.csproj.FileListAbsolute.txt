@@ -1,0 +1,42 @@
+c:\users\jessi\documents\visual studio 2015\Projects\JessTheseusMinotaur\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe.config
+c:\users\jessi\documents\visual studio 2015\Projects\JessTheseusMinotaur\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe
+c:\users\jessi\documents\visual studio 2015\Projects\JessTheseusMinotaur\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.pdb
+c:\users\jessi\documents\visual studio 2015\Projects\JessTheseusMinotaur\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.csprojResolveAssemblyReference.cache
+c:\users\jessi\documents\visual studio 2015\Projects\JessTheseusMinotaur\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.exe
+c:\users\jessi\documents\visual studio 2015\Projects\JessTheseusMinotaur\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.pdb
+E:\JessTheseusMinotaur1\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe.config
+E:\JessTheseusMinotaur1\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.exe
+E:\JessTheseusMinotaur1\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.pdb
+E:\JessTheseusMinotaur1\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe
+E:\JessTheseusMinotaur1\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.pdb
+E:\JessTheseusMinotaur1\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.csprojResolveAssemblyReference.cache
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe.config
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.exe
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.pdb
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.pdb
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.csprojResolveAssemblyReference.cache
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.2\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe.config
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.2\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.exe
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.2\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.pdb
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.2\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.2\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.pdb
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.2\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.csprojResolveAssemblyReference.cache
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.4\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe.config
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.4\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.exe
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.4\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.pdb
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.4\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.4\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.pdb
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.4\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.csprojResolveAssemblyReference.cache
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.5\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe.config
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.5\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.exe
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.5\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.pdb
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.5\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.5\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.pdb
+\\Adfsstud2\j-m\jep0411\Documents\Visual Studio 2012\Projects\JessTheseusMinotaur1.5\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.csprojResolveAssemblyReference.cache
+E:\JessTheseusMinotaur1.6-Working\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe.config
+E:\JessTheseusMinotaur1.6-Working\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.exe
+E:\JessTheseusMinotaur1.6-Working\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.pdb
+E:\JessTheseusMinotaur1.6-Working\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.exe
+E:\JessTheseusMinotaur1.6-Working\JessTheseusMinotaur\bin\Debug\JessTheseusMinotaur.pdb
+E:\JessTheseusMinotaur1.6-Working\JessTheseusMinotaur\obj\Debug\JessTheseusMinotaur.csprojResolveAssemblyReference.cache
